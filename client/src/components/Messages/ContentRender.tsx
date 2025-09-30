@@ -149,7 +149,15 @@ const ContentRender = memo(
 
         <div className="relative flex flex-shrink-0 flex-col items-center">
           <div className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">
-            <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
+            {!msg.isCreatedByUser ? (
+              <img
+                src="/assets/gandalf.png"
+                alt="Gandalf"
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
+            )}
           </div>
         </div>
 
@@ -159,7 +167,9 @@ const ContentRender = memo(
             msg.isCreatedByUser ? 'user-turn' : 'agent-turn',
           )}
         >
-          <h2 className={cn('select-none font-semibold', fontSize)}>{messageLabel}</h2>
+          <h2 className={cn('select-none font-semibold', fontSize)}>
+            {msg.isCreatedByUser ? messageLabel : 'Gandalv'}
+          </h2>
 
           <div className="flex flex-col gap-1">
             <div className="flex max-w-full flex-grow flex-col gap-0">
