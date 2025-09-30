@@ -124,53 +124,53 @@ html {
   --switch-unchecked: 0 0% 58%;
 }
 .dark {
-  --brand-purple: #ab68ff;
-  --presentation: var(--gray-800);
-  --text-primary: var(--gray-100);
-  --text-secondary: var(--gray-300);
+  --brand-purple: #3B9FD9;
+  --presentation: #11171c;
+  --text-primary: #ffffff;
+  --text-secondary: #7f8a99;
   --text-secondary-alt: var(--gray-400);
   --text-tertiary: var(--gray-500);
   --text-warning: var(--amber-500);
-  --header-primary: var(--gray-700);
-  --header-hover: var(--gray-600);
-  --header-button-hover: var(--gray-700);
-  --surface-active: var(--gray-500);
-  --surface-active-alt: var(--gray-700);
-  --surface-hover: var(--gray-600);
-  --surface-hover-alt: var(--gray-600);
-  --surface-primary: var(--gray-900);
-  --surface-primary-alt: var(--gray-850);
-  --surface-primary-contrast: var(--gray-850);
-  --surface-secondary: var(--gray-800);
-  --surface-secondary-alt: var(--gray-800);
-  --surface-tertiary: var(--gray-700);
-  --surface-tertiary-alt: var(--gray-700);
-  --surface-dialog: var(--gray-850);
-  --surface-submit: var(--green-700);
-  --surface-submit-hover: var(--green-800);
+  --header-primary: #1c2933;
+  --header-hover: #354855;
+  --header-button-hover: #354855;
+  --surface-active: #4a7ba7;
+  --surface-active-alt: #2d5a7b;
+  --surface-hover: #354855;
+  --surface-hover-alt: #354855;
+  --surface-primary: #11171c;
+  --surface-primary-alt: #1c2933;
+  --surface-primary-contrast: #1c2933;
+  --surface-secondary: #1c2933;
+  --surface-secondary-alt: #1c2933;
+  --surface-tertiary: #2d5a7b;
+  --surface-tertiary-alt: #2d5a7b;
+  --surface-dialog: #1c2933;
+  --surface-submit: #23bad9;
+  --surface-submit-hover: #1a91ab;
   --surface-destructive: var(--red-800);
   --surface-destructive-hover: var(--red-900);
-  --surface-chat: var(--gray-700);
-  --border-light: var(--gray-700);
-  --border-medium-alt: var(--gray-600);
-  --border-medium: var(--gray-600);
-  --border-heavy: var(--gray-500);
-  --border-xheavy: var(--gray-400);
+  --surface-chat: #1c2933;
+  --border-light: #354855;
+  --border-medium-alt: #354855;
+  --border-medium: #354855;
+  --border-heavy: #4a7ba7;
+  --border-xheavy: #7f8a99;
   /* These are test styles */
 
-  --background: 0 0% 7%;
+  --background: 220 21% 7%;
   --foreground: 0 0% 98%;
-  --card: 0 0% 3.9%;
+  --card: 0 0% 18%;
   --card-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
+  --primary: 217 100% 59%;
   --primary-foreground: 0 0% 9%;
-  --secondary: 0 0% 14.9%;
+  --secondary: 220 5% 50%;
   --secondary-foreground: 0 0% 98%;
   --muted: 0 0% 14.9%;
   --muted-foreground: 0 0% 63.9%;
   --accent: 0 0% 14.9%;
   --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 40.6%;
+  --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
   --border: 0 0% 14.9%;
   --input: 0 0% 14.9%;
@@ -524,6 +524,17 @@ select {
   border-width: 1px;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.dark select {
+  background-color: #1c2933;
+  border-color: #354855;
+}
+
+.dark input:not([type='checkbox']):not([type='radio']),
+.dark textarea {
+  background-color: #1c2933 !important;
+  border-color: #354855 !important;
 }
 
 .overflow-y-auto {
@@ -1690,6 +1701,13 @@ html {
   font-size: 1rem;
   line-height: 1.5rem;
   padding: 0.5rem 0.75rem;
+}
+.dark .form-input,
+.dark .form-multiselect,
+.dark .form-select,
+.dark .form-textarea {
+  background-color: #1c2933;
+  border-color: #354855;
 }
 .form-input:focus,
 .form-multiselect:focus,
