@@ -65,7 +65,7 @@ services:
     network_mode: host
     image: ghcr.io/danny-avila/librechat-rag-api-dev-lite:latest
     environment:
-      - DB_HOST=vectordb
+      - DB_HOST=localhost
       - RAG_PORT=${RAG_PORT:-8000}
     restart: always
     depends_on:
