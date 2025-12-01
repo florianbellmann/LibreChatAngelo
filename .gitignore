@@ -31,7 +31,6 @@ client/src/localization/languages/*_missing_keys.json
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-dist/
 public/main.js
 public/main.js.map
 public/main.js.LICENSE.txt
@@ -138,3 +137,7 @@ helm/**/.values.yaml
 /.tabnine/
 /.codeium
 *.local.md
+packages/api/dist
+packages/client/dist
+packages/data-provider/dist
+packages/data-schemas/dist
