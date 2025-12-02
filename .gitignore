@@ -141,3 +141,4 @@ packages/api/dist
 packages/client/dist
 packages/data-provider/dist
 packages/data-schemas/dist
+client
