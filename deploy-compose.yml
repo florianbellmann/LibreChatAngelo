@@ -69,7 +69,7 @@ services:
       - ./meili_data_v1.12:/meili_data
   vectordb:
     image: pgvector/pgvector:0.8.0-pg15-trixie
-    container_name: vectordb
+    # container_name: vectordb
     environment:
       POSTGRES_DB: mydatabase
       POSTGRES_USER: myuser
@@ -78,7 +78,7 @@ services:
     volumes:
       - pgdata2:/var/lib/postgresql/data
   rag_api:
-    container_name: rag_api
+    # container_name: rag_api
     image: ghcr.io/danny-avila/librechat-rag-api-dev-lite:latest
     environment:
       - DB_HOST=vectordb
