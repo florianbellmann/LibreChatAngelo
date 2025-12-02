@@ -1,5 +1,6 @@
-import { useRecoilValue } from 'recoil';
 import { useCallback, useMemo, memo } from 'react';
+import { useAtomValue } from 'jotai';
+import { useRecoilValue } from 'recoil';
 import type { TMessage, TMessageContentParts } from 'librechat-data-provider';
 import type { TMessageProps, TMessageIcon } from '~/common';
 import ContentParts from '~/components/Chat/Messages/Content/ContentParts';
@@ -9,6 +10,7 @@ import HoverButtons from '~/components/Chat/Messages/HoverButtons';
 import MessageIcon from '~/components/Chat/Messages/MessageIcon';
 import { useAttachments, useMessageActions } from '~/hooks';
 import SubRow from '~/components/Chat/Messages/SubRow';
+import { fontSizeAtom } from '~/store/fontSize';
 import { cn, logger } from '~/utils';
 import store from '~/store';
 
@@ -60,8 +62,8 @@ const ContentRender = memo(
       isMultiMessage,
       setCurrentEditId,
     });
+    const fontSize = useAtomValue(fontSizeAtom);
     const maximizeChatSpace = useRecoilValue(store.maximizeChatSpace);
-    const fontSize = useRecoilValue(store.fontSize);
 
     const handleRegenerateMessage = useCallback(() => regenerateMessage(), [regenerateMessage]);
     const isLast = useMemo(
@@ -96,7 +98,10 @@ const ContentRender = memo(
       () =>
         showCardRender && !isLatestMessage
           ? () => {
-              logger.log(`Message Card click: Setting ${msg?.messageId} as latest message`);
+              logger.log(
+                'latest_message',
+                `Message Card click: Setting ${msg?.messageId} as latest message`,
+              );
               logger.dir(msg);
               setLatestMessage(msg!);
             }
@@ -149,15 +154,7 @@ const ContentRender = memo(
 
         <div className="relative flex flex-shrink-0 flex-col items-center">
           <div className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">
-            {!msg.isCreatedByUser ? (
-              <img
-                src="/assets/gandalf.png"
-                alt="Gandalf"
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
-            )}
+            <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
           </div>
         </div>
 
@@ -167,9 +164,7 @@ const ContentRender = memo(
             msg.isCreatedByUser ? 'user-turn' : 'agent-turn',
           )}
         >
-          <h2 className={cn('select-none font-semibold', fontSize)}>
-            {msg.isCreatedByUser ? messageLabel : 'Gandalv'}
-          </h2>
+          <h2 className={cn('select-none font-semibold', fontSize)}>{messageLabel}</h2>
 
           <div className="flex flex-col gap-1">
             <div className="flex max-w-full flex-grow flex-col gap-0">
